@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1" android:weightSum="1">
+    <ImageView android:src="@drawable/clock1" android:layout_height="wrap_content" android:id="@+id/imageView1" android:layout_width="wrap_content"></ImageView>
+    <ListView  
+         android:id="@android:id/list"
+         android:layout_width="fill_parent" android:layout_height="202dp" android:layout_weight="1.17"/>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="fill" android:layout_width="wrap_content">
+        <Button android:text="Done" android:id="@+id/main_ok" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="0dp"></Button>
+        <Button android:text="Cancel" android:id="@+id/main_cancel" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="0dp"></Button>
+    </LinearLayout>
+</TableLayout>

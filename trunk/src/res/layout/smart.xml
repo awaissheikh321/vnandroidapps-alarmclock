@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1" android:weightSum="1">
+    <ImageView android:src="@drawable/clock2" android:layout_height="59dp" android:id="@+id/imageView1" android:layout_width="wrap_content"></ImageView>
+    <TextView android:text="TextView" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="match_parent" android:gravity="center" android:layout_weight="0.06" android:id="@+id/smart_timer"></TextView>
+    <TextView android:text="TextView aaaa bbbb ccc ddd eee fff ggg hhhhhhh j kkkkkkkkkkk ll mmm nnnnnnnnnnn ooooooooooo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0.13" android:id="@+id/smart_note"></TextView>
+    <Button android:text="OK" android:id="@+id/smart_ok" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+</TableLayout>

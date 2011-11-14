@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AlarmClockActivity!</string>
+    <string name="app_name">Alarm Clock v1.0</string>
+    <string name="startBtn">Start</string>
+    <string name="stopBtn">Stop</string>
+    <string name="config_screen_name">Set Alarm</string>
+    <string name="repeat_screen_name">Repeat</string>
+    <string name="smart_screen_name">Alarm</string>
+    
+    <string-array name="CONFIG_STATUS">
+    	<item>ON</item>
+    	<item>OFF</item>
+    </string-array>
+</resources>

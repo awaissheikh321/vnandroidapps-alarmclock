@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/setting_timerRow">
+        <LinearLayout android:padding="5dip" android:orientation="vertical" android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_width="match_parent">
+            <TextView android:text="Time" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView1"></TextView>
+            <TextView android:text="0:00" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/setting_timer"></TextView>
+        </LinearLayout>
+    </TableRow>
+    <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:padding="5dip" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearLayout2">
+            <TextView android:text="Ringtone" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView3"></TextView>
+            <TextView android:text="Ringing Alarm" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView4"></TextView>
+        </LinearLayout>
+        <ImageView android:src="@drawable/icon" android:id="@+id/imageButton1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="right"></ImageView>
+    </TableRow>
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/setting_repeatRow">
+        <LinearLayout android:padding="5dip" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearLayout4">
+            <TextView android:text="Repeat" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView6"></TextView>
+            <TextView android:text="every day" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/setting_repeatType"></TextView>
+        </LinearLayout>
+        <ImageView android:id="@+id/imageView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon" android:layout_gravity="right"></ImageView>
+    </TableRow>
+    <TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:padding="5dip" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearLayout5">
+            <TextView android:text="Label" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView8"></TextView>
+            <TextView android:text="ngay mai an nhau..." android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView9"></TextView>
+        </LinearLayout>
+        <ImageView android:id="@+id/imageView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon" android:layout_gravity="right"></ImageView>
+    </TableRow>
+    <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:text="Done" android:layout_height="wrap_content" android:id="@+id/setting_ok" android:layout_weight="1" android:layout_width="0dp"></Button>
+        <Button android:text="Cancel" android:layout_height="wrap_content" android:id="@+id/setting_cancel" android:layout_weight="1" android:layout_width="0dp"></Button>
+    </TableRow>
+</TableLayout>
