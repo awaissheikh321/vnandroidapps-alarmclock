@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="hello">Hello World, AlarmClockActivity!</string>
-    <string name="app_name">Alarm Clock v0.1</string>
-    <string name="config_screen_name">Configuration</string>
-</resources>
