@@ -1,7 +1,6 @@
 package com.vnandroidapp.alarmclock;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import com.vnandroidapp.alarmclock.audio.*;
@@ -9,11 +8,13 @@ import com.vnandroidapp.alarmclock.audio.service.*;
 import com.vnandroidapp.alarmclock.bean.Clock;
 import com.vnandroidapp.alarmclock.bean.Repeater;
 import com.vnandroidapp.alarmclock.db.ConfigManager;
+import com.vnandroidapp.alarmclock.db.DatabaseAdapter;
 
 import android.app.AlarmManager;
 import android.app.ListActivity;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -26,12 +27,20 @@ public class AlarmClockActivity extends ListActivity implements OnClickListener 
 	private List<Clock> clocks = null;
 	private SimpleListAdapter listAdapter = null;
 	private static boolean[] remainStatus = null;
+	private DatabaseAdapter dbHelper;
+	private Cursor cursor;
+	public static final String ON = "On";
+	public static final String OFF = "Off";
 	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		dbHelper = new DatabaseAdapter(this);
+		dbHelper.open();
+		fillData();
 
 		clocks = ConfigManager.loadConfig();
 		remainStatus = new boolean[clocks.size()];
@@ -253,4 +262,16 @@ public class AlarmClockActivity extends ListActivity implements OnClickListener 
 			alarmManager.cancel(pendingIntent);//stop all service
 		}
 	}
+	
+	private void fillData() {
+		cursor = dbHelper.fetchAllAlarms();		
+		
+//		/** ************************************************* */
+		// TODO
+		cursor.close();
+		/** ************************************************* */
+		
+	}
+
+	
 }
