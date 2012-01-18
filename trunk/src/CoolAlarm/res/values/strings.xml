@@ -14,6 +14,7 @@
     <string name="enable">Alarm</string>
     <string name="alarm_vibrate">Vibrate</string>
     <string name="alarm_repeat">Repeat</string>
+    <string name="alarm_label">Label</string>
     <string name="alert">Ringtone</string>
     <string name="time">Time</string>
 

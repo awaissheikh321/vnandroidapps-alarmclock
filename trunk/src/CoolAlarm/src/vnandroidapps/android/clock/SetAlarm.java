@@ -12,7 +12,9 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceScreen;
@@ -33,6 +35,7 @@ public class SetAlarm extends PreferenceActivity
     private AlarmPreference mAlarmPref;
     private CheckBoxPreference mVibratePref;
     private RepeatPreference mRepeatPref;
+    private EditTextPreference mLabelPref;
     private ContentObserver mAlarmsChangeObserver;
     private MenuItem mDeleteAlarmItem;
 
@@ -69,6 +72,15 @@ public class SetAlarm extends PreferenceActivity
             Alarms.getAlarm(getContentResolver(), SetAlarm.this, mId);
         }
     }
+    
+    private class OnLabelChangeListener implements OnPreferenceChangeListener {
+		@Override
+		public boolean onPreferenceChange(Preference preference, Object newValue) {
+			if(newValue != null)
+				updateMessage(newValue.toString());
+			return false;
+		}
+    }
 
     /**
      * Set an alarm.  Requires an Alarms.ID to be passed in as an
@@ -84,6 +96,7 @@ public class SetAlarm extends PreferenceActivity
         mAlarmPref = (AlarmPreference) findPreference("alarm");
         mVibratePref = (CheckBoxPreference) findPreference("vibrate");
         mRepeatPref = (RepeatPreference) findPreference("setRepeat");
+        mLabelPref = (EditTextPreference) findPreference("setLabel");
 
         Intent i = getIntent();
         mId = i.getIntExtra(Alarms.ID, -1);
@@ -106,6 +119,7 @@ public class SetAlarm extends PreferenceActivity
 
         mAlarmPref.setRingtoneChangedListener(new RingtoneChangedListener());
         mRepeatPref.setOnRepeatChangeListener(new OnRepeatChangeListener());
+        mLabelPref.setOnPreferenceChangeListener(new OnLabelChangeListener());
     }
 
     @Override
@@ -183,6 +197,7 @@ public class SetAlarm extends PreferenceActivity
         mDaysOfWeek.set(daysOfWeek);
         mRepeatPref.setDaysOfWeek(mDaysOfWeek);
         mVibratePref.setChecked(vibrate);
+        mLabelPref.setSummary(message);
 
         if (alert == null || alert.length() == 0) {
             if (Log.LOGV) Log.v("****** reportAlarm null or 0-length alert");
@@ -231,13 +246,20 @@ public class SetAlarm extends PreferenceActivity
         if (Log.LOGV) Log.v("updateRepeat " + mId);
         mRepeatPref.setSummary(mDaysOfWeek.toString(this, true));
     }
+    
+    private void updateMessage(String message) {
+    	if(message ==  null)
+    		message = "";
+    	mLabelPref.setSummary(message);
+    	saveAlarm(false);
+    }
 
     private void saveAlarm(boolean popToast) {
         if (mReportAlarmCalled && mAlarmPref.mAlert != null) {
             String alertString = mAlarmPref.mAlert.toString();
             saveAlarm(this, mId, mAlarmOnPref.isChecked(), mHour, mMinutes,
-                      mDaysOfWeek, mVibratePref.isChecked(), alertString,
-                      popToast);
+                      mDaysOfWeek, mVibratePref.isChecked(), mLabelPref.getSummary().toString(), 
+                      alertString, popToast);
         }
     }
 
@@ -247,14 +269,14 @@ public class SetAlarm extends PreferenceActivity
      */
     private static void saveAlarm(
             Context context, int id, boolean enabled, int hour, int minute,
-            Alarms.DaysOfWeek daysOfWeek, boolean vibrate, String alert,
+            Alarms.DaysOfWeek daysOfWeek, boolean vibrate, String message, String alert,
             boolean popToast) {
         if (Log.LOGV) Log.v("** saveAlarm " + id + " " + enabled + " " + hour +
                             " " + minute + " vibe " + vibrate);
 
         // Fix alert string first
         Alarms.setAlarm(context, id, enabled, hour, minute, daysOfWeek, vibrate,
-                        "", alert);
+        		message, alert);
 
         if (enabled && popToast) {
             popAlarmSetToast(context, hour, minute, daysOfWeek);
