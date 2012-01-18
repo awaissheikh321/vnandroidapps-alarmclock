@@ -17,4 +17,7 @@
         android:title="@string/alarm_repeat"
         android:entries="@array/days_of_week"
         android:entryValues="@array/days_of_week"/>
+    <EditTextPreference
+    	android:key="setLabel"
+    	android:title="@string/alarm_label"/>
 </PreferenceScreen>

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -49,6 +50,7 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
     private String mAlert;
     private boolean mVibrate;
     private boolean mSnoozed;
+    private String mMessage;
     private boolean mCleanupCalled = false;
 
     public void reportAlarm(
@@ -60,6 +62,7 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
         mAlert = alert;
         mDaysOfWeek = daysOfWeek;
         mVibrate = vibrate;
+        mMessage = message;
     }
 
     @Override
@@ -83,6 +86,8 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
         if (clockLayout instanceof DigitalClock) {
             ((DigitalClock)clockLayout).setAnimate();
         }
+        TextView messageView = (TextView) findViewById(R.id.messageView);
+        messageView.setText(mMessage);
 
         playAlert(getIntent());
 
