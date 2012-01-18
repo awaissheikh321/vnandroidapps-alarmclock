@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -64,7 +65,9 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        requestWindowFeature(Window.FEATURE_LEFT_ICON);
         setContentView(R.layout.alarm_alert);
+        setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_logo);
 
         mKeyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

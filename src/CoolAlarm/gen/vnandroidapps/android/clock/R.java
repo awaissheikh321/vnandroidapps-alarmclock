@@ -44,8 +44,9 @@ public final class R {
         public static final int clockgoog_hour=0x7f020011;
         public static final int clockgoog_minute=0x7f020012;
         public static final int ic_launcher_alarmclock=0x7f020013;
-        public static final int ic_menu_clock_face=0x7f020014;
-        public static final int stat_notify_alarm=0x7f020015;
+        public static final int ic_logo=0x7f020014;
+        public static final int ic_menu_clock_face=0x7f020015;
+        public static final int stat_notify_alarm=0x7f020016;
     }
     public static final class id {
         public static final int alarmButton=0x7f09000d;
