@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -155,8 +156,10 @@ public class CoolAlarm extends Activity {
                     .create().show();
             return;
         }
-
+        
+        requestWindowFeature(Window.FEATURE_LEFT_ICON);
         setContentView(R.layout.alarm_clock);
+        setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_logo);
         mFactory = LayoutInflater.from(this);
         mPrefs = getSharedPreferences(PREFERENCES, 0);
 
