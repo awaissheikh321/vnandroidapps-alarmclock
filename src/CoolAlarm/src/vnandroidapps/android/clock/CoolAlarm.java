@@ -9,14 +9,19 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Contacts.Intents;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.CheckBox;
@@ -53,9 +58,6 @@ public class CoolAlarm extends Activity {
      */
     private int mFace = -1;
 
-    /*
-     * FIXME: it would be nice for this to live in an xml config file.
-     */
     final static int[] CLOCKS = {
         R.layout.analog_clock,
         R.layout.clock_basic_bw,
@@ -71,7 +73,6 @@ public class CoolAlarm extends Activity {
         }
 
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            /* FIXME: this is called 3+x times too many by the ListView */
             View ret = mFactory.inflate(R.layout.alarm_time, parent, false);
             DigitalClock digitalClock = (DigitalClock)ret.findViewById(R.id.digitalClock);
             digitalClock.setLive(false);
@@ -157,9 +158,21 @@ public class CoolAlarm extends Activity {
             return;
         }
         
-        requestWindowFeature(Window.FEATURE_LEFT_ICON);
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        
         setContentView(R.layout.alarm_clock);
-        setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_logo);
+ 
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.tilte);
+        ImageView tv = (ImageView)findViewById(R.id.tv);
+        tv.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				Intent in = new Intent(v.getContext(), WebHome.class);
+				startActivityForResult(in, 0);
+				return false;
+			}
+		});
         mFactory = LayoutInflater.from(this);
         mPrefs = getSharedPreferences(PREFERENCES, 0);
 
@@ -249,7 +262,6 @@ public class CoolAlarm extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item == mAddAlarmItem) {
             Uri uri = Alarms.addAlarm(getContentResolver());
-            // FIXME: scroll to new item.  mAlarmsList.requestChildRectangleOnScreen() ?
             String segment = uri.getPathSegments().get(1);
             int newId = Integer.parseInt(segment);
             if (Log.LOGV) Log.v("In AlarmClock, new alarm id = " + newId);

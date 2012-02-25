@@ -3,7 +3,7 @@
         android:versionCode="1"
       android:versionName="1.0">
         <uses-sdk android:minSdkVersion="8" />
-
+	<uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -11,7 +11,8 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
     <application android:label="@string/app_label"
-                 android:icon="@drawable/ic_launcher_alarmclock">
+                 android:icon="@drawable/ic_launcher_alarmclock"
+                 android:theme="@style/CustomTheme">
 
         <provider android:name="vnandroidapps.android.clock.AlarmProvider" android:authorities="vnandroidapps.android.clock" />
 
@@ -22,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+		<activity android:name="WebHome" android:label="Web Home" />
+        
         <activity android:name="SetAlarm" android:label="Set Alarm" />
 
         <activity android:name="AlarmAlert" android:label="Alarm"

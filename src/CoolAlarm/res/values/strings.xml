@@ -79,6 +79,17 @@
         <item>Sun</item>
     </string-array>
 
+    <!-- custom titlebar -->
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">#323331</item>
+    </style>
+ 
+    <style name="CustomTheme" parent="android:Theme">
+        <item name="android:windowTitleSize">35dip</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+    </style>
+
+     
 </resources>
 
 
