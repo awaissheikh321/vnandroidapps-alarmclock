@@ -63,6 +63,9 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
         mDaysOfWeek = daysOfWeek;
         mVibrate = vibrate;
         mMessage = message;
+        
+        TextView messageView = (TextView) findViewById(R.id.messageView);
+        messageView.setText(mMessage);
     }
 
     @Override
@@ -86,8 +89,6 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
         if (clockLayout instanceof DigitalClock) {
             ((DigitalClock)clockLayout).setAnimate();
         }
-        TextView messageView = (TextView) findViewById(R.id.messageView);
-        messageView.setText(mMessage);
 
         playAlert(getIntent());
 
