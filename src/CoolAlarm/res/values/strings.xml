@@ -17,6 +17,10 @@
     <string name="alarm_label">Label</string>
     <string name="alert">Ringtone</string>
     <string name="time">Time</string>
+    <string name="browse">Browse...</string>
+    <string name="file_type_folder_text">Folder</string>
+    <string name="file_size_text">File Size:</string>
+    <string name="file_type_parent_text">Parent Directory</string>
 
     <!-- Button lables that appear on the alarm dialog -->
     <string name="alarm_alert_dismiss_text">Dismiss</string>
@@ -77,6 +81,9 @@
         <item>Fri</item>
         <item>Sat</item>
         <item>Sun</item>
+    </string-array>
+    <string-array name="file_extension">
+    	<item>.mp3</item>
     </string-array>
 
     <!-- custom titlebar -->

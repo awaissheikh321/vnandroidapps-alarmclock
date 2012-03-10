@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceScreen;
@@ -34,6 +35,7 @@ public class SetAlarm extends PreferenceActivity
     private CheckBoxPreference mAlarmOnPref;
     private Preference mTimePref;
     private AlarmPreference mAlarmPref;
+    private Preference mAlarmBrowsePref;
     private CheckBoxPreference mVibratePref;
     private RepeatPreference mRepeatPref;
     private EditTextPreference mLabelPref;
@@ -53,6 +55,19 @@ public class SetAlarm extends PreferenceActivity
         public void onRingtoneChanged(Uri ringtoneUri) {
             saveAlarm(false);
         }
+    }
+    
+    private class AlarmBrowseListener implements OnPreferenceClickListener {
+		@Override
+		public boolean onPreferenceClick(Preference preference) {
+			startFileBrowser();
+			return false;
+		}
+    }
+    
+    private void startFileBrowser() {
+    	Intent intent = new Intent(this, FileChooser.class);
+		startActivity(intent);
     }
 
     private class OnRepeatChangeListener implements RepeatPreference.OnRepeatChangeListener {
@@ -99,6 +114,7 @@ public class SetAlarm extends PreferenceActivity
         mVibratePref = (CheckBoxPreference) findPreference("vibrate");
         mRepeatPref = (RepeatPreference) findPreference("setRepeat");
         mLabelPref = (EditTextPreference) findPreference("setLabel");
+        mAlarmBrowsePref = findPreference("alarmBrowse");
 
         Intent i = getIntent();
         mId = i.getIntExtra(Alarms.ID, -1);
@@ -120,6 +136,7 @@ public class SetAlarm extends PreferenceActivity
                 Alarms.AlarmColumns.CONTENT_URI, true, mAlarmsChangeObserver);
 
         mAlarmPref.setRingtoneChangedListener(new RingtoneChangedListener());
+        mAlarmBrowsePref.setOnPreferenceClickListener(new AlarmBrowseListener());
         mRepeatPref.setOnRepeatChangeListener(new OnRepeatChangeListener());
         mLabelPref.setOnPreferenceChangeListener(new OnLabelChangeListener());
     }
