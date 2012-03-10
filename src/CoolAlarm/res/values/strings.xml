@@ -21,6 +21,8 @@
     <string name="file_type_folder_text">Folder</string>
     <string name="file_size_text">File Size:</string>
     <string name="file_type_parent_text">Parent Directory</string>
+    <string name="file_add_success">was added.</string>
+    <string name="file_add_duplicated">Ringtone has contain this song.\nPlease select another song !</string>
 
     <!-- Button lables that appear on the alarm dialog -->
     <string name="alarm_alert_dismiss_text">Dismiss</string>
