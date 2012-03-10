@@ -24,6 +24,8 @@ public class FileChooser extends ListActivity {
 	private String folder;
 	private String file_size;
 	private String folder_parent;
+	private String message_success;
+	private String message_duplicated;
 	private File currentDir;
 	private FileArrayAdapter adapter;
 
@@ -35,6 +37,8 @@ public class FileChooser extends ListActivity {
 		folder = getResources().getString(R.string.file_type_folder_text);
 		file_size = getResources().getString(R.string.file_size_text);
 		folder_parent = getResources().getString(R.string.file_type_parent_text);
+		message_success = getResources().getString(R.string.file_add_success);
+		message_duplicated = getResources().getString(R.string.file_add_duplicated);
 		fill(currentDir);
 	}
 
@@ -107,10 +111,10 @@ public class FileChooser extends ListActivity {
 			RingtoneManager.setActualDefaultRingtoneUri(
 					getApplicationContext(), RingtoneManager.TYPE_RINGTONE,
 					newUri);
-			Toast.makeText(this, k.getName() + " was added.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, k.getName() + message_success, Toast.LENGTH_SHORT).show();
 			finish();
 		} catch (Exception e) {
-			Toast.makeText(this, "Ringtone has contain this song.\nPlease select another song !", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, message_duplicated, Toast.LENGTH_SHORT).show();
 		}
 	}
 
