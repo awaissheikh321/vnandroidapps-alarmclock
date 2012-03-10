@@ -4,12 +4,15 @@
         android:title="@string/enable"/>
     <Preference android:key="time" 
         android:title="@string/time"/>
-    <vnandroidapps.android.clock.AlarmPreference
-        android:key="alarm" 
-        android:title="@string/alert"
-        android:ringtoneType="alarm"
-        android:showDefault="false"
-        android:showSilent="false" />
+    <PreferenceScreen android:title="@string/alert">
+	    <vnandroidapps.android.clock.AlarmPreference
+	        android:key="alarm" 
+	        android:title="@string/alert"
+	        android:ringtoneType="alarm"
+	        android:showDefault="false" 
+	        android:showSilent="false" />
+    	<Preference android:title="@string/browse" android:key="alarmBrowse" />
+    </PreferenceScreen>
     <CheckBoxPreference android:key="vibrate" 
         android:title="@string/alarm_vibrate"/>
     <vnandroidapps.android.clock.RepeatPreference

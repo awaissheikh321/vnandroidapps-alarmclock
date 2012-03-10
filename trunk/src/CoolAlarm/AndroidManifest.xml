@@ -33,6 +33,8 @@
                 android:taskAffinity=":AlarmAlert" />
 
         <activity android:name="vnandroidapps.android.clock.ClockPicker" />
+        
+        <activity android:name="vnandroidapps.android.clock.FileChooser" />
 
         <receiver android:name="AlarmReceiver">
             <intent-filter>
