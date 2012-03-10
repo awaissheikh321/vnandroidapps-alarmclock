@@ -29,6 +29,7 @@ import android.widget.CheckBox;
 import java.util.Calendar;
 
 import vnandroidapps.android.clock.R;
+import vnandroidapps.android.clock.utils.Background;
 
 
 /**
@@ -135,6 +136,7 @@ public class CoolAlarm extends Activity {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        Background.setDefaultBackground(getWindow());
 
         // sanity check -- no database, no clock
         if (getContentResolver() == null) {

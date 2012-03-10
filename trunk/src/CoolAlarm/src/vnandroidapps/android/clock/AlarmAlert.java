@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import vnandroidapps.android.clock.R;
+import vnandroidapps.android.clock.utils.Background;
 
 
 /**
@@ -71,6 +72,8 @@ public class AlarmAlert extends Activity implements Alarms.AlarmSettings {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        Background.setDefaultBackground(getWindow());
+
         requestWindowFeature(Window.FEATURE_LEFT_ICON);
         setContentView(R.layout.alarm_alert);
         setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_logo);

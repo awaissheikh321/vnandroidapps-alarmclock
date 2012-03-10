@@ -1,6 +1,7 @@
 package vnandroidapps.android.clock;
 
 import vnandroidapps.android.clock.R;
+import vnandroidapps.android.clock.utils.Background;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -30,6 +31,8 @@ public class ClockPicker extends Activity implements
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        Background.setDefaultBackground(getWindow());
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         mFactory = LayoutInflater.from(this);

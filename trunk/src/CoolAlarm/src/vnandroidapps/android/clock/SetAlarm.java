@@ -1,6 +1,7 @@
 package vnandroidapps.android.clock;
 
 import vnandroidapps.android.clock.R;
+import vnandroidapps.android.clock.utils.Background;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -89,6 +90,7 @@ public class SetAlarm extends PreferenceActivity
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        Background.setDefaultBackground(getWindow());
 
         addPreferencesFromResource(R.xml.alarm_prefs);
         mAlarmOnPref = (CheckBoxPreference)findPreference("on");
