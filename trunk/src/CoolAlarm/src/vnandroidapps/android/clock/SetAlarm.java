@@ -97,7 +97,7 @@ public class SetAlarm extends PreferenceActivity
 			return false;
 		}
     }
-
+    
     /**
      * Set an alarm.  Requires an Alarms.ID to be passed in as an
      * extra
@@ -217,6 +217,7 @@ public class SetAlarm extends PreferenceActivity
         mRepeatPref.setDaysOfWeek(mDaysOfWeek);
         mVibratePref.setChecked(vibrate);
         mLabelPref.setSummary(message);
+        mLabelPref.setText(message);
 
         if (alert == null || alert.length() == 0) {
             if (Log.LOGV) Log.v("****** reportAlarm null or 0-length alert");
@@ -270,6 +271,7 @@ public class SetAlarm extends PreferenceActivity
     	if(message ==  null)
     		message = "";
     	mLabelPref.setSummary(message);
+    	mLabelPref.setText(message);
     	saveAlarm(false);
     }
 

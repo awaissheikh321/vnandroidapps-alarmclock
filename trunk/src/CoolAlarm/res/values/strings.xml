@@ -17,7 +17,7 @@
     <string name="alarm_label">Label</string>
     <string name="alert">Ringtone</string>
     <string name="time">Time</string>
-    <string name="browse">Browse...</string>
+    <string name="browse">Add</string>
     <string name="file_type_folder_text">Folder</string>
     <string name="file_size_text">File Size:</string>
     <string name="file_type_parent_text">Parent Directory</string>
