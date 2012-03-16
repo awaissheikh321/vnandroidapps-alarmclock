@@ -33,6 +33,7 @@ public class FileChooser extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Background.setDefaultBackground(getWindow());
+		
 		currentDir = new File(File.separator + LOCATION + File.separator);
 		folder = getResources().getString(R.string.file_type_folder_text);
 		file_size = getResources().getString(R.string.file_size_text);
