@@ -87,8 +87,8 @@
     <string-array name="file_extension">
     	<item>.mp3</item>
     </string-array>
-
-    <!-- custom titlebar -->
+	
+	<!-- custom titlebar -->
     <style name="CustomWindowTitleBackground">
         <item name="android:background">#323331</item>
     </style>
@@ -96,6 +96,7 @@
     <style name="CustomTheme" parent="android:Theme">
         <item name="android:windowTitleSize">35dip</item>
         <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+        <item name="android:windowBackground">@drawable/bg02</item>
     </style>
 
      

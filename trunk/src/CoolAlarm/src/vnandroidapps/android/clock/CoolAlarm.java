@@ -167,9 +167,9 @@ public class CoolAlarm extends Activity {
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.tilte);
         ImageView tv = (ImageView)findViewById(R.id.tv);
         tv.setOnTouchListener(new OnTouchListener() {
-			
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public boolean onTouch(View v, MotionEvent event) 
+			{
 				Intent in = new Intent(v.getContext(), WebHome.class);
 				startActivityForResult(in, 0);
 				return false;
